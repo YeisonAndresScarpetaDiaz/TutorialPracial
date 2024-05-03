@@ -1,0 +1,37 @@
+@startuml
+
+class categorias_de_carros{
+    - int : id
+    - String : categoria
+    - String : tipo_vehiculo
+    - String : descripción
+}
+
+class autos{
+    - int : id
+    - String : marca
+    - int : precio
+    - String : cilindraje
+    - categorias_de_carros : id_categorias_de_carros
+    - String : descripción
+}
+
+class persona{
+    - int : id
+    - String : nombre
+    - String : apellido
+    - int : telefono
+    - String : dirección
+    - int : documento
+}
+
+class autos{
+    - int : id
+    - autos : id_autos
+    - persona : id_persona
+    - String : descripción
+}
+
+persona "1" -- "*" autos : tiene 
+autos "1" -- "*" categorias_de_carros : tiene 
+@enduml
